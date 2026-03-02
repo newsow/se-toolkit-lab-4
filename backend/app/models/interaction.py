@@ -14,7 +14,7 @@ class InteractionLog(SQLModel, table=True):
     """An interaction log entry in the database."""
 
     __tablename__ = "interacts"
-
+    
     id: int | None = Field(default=None, primary_key=True)
     learner_id: int = Field(foreign_key="learner.id")
     item_id: int = Field(foreign_key="item.id")
@@ -37,4 +37,4 @@ class InteractionModel(SQLModel):
     learner_id: int
     item_id: int
     kind: str
-    timestamp: datetime
+    created_at: datetime
