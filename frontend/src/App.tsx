@@ -7,6 +7,7 @@ interface Item {
   id: number
   type: string
   title: string
+  description: string
   created_at: string
 }
 
@@ -25,7 +26,7 @@ function App() {
     setLoading(true)
     setError(null)
 
-    fetch('/items', {
+    fetch('/items/', {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => {
@@ -93,6 +94,7 @@ function App() {
               <th>ID</th>
               <th>Type</th>
               <th>Title</th>
+              <th>Description</th>
               <th>Created at</th>
             </tr>
           </thead>
@@ -102,6 +104,7 @@ function App() {
                 <td>{item.id}</td>
                 <td>{item.type}</td>
                 <td>{item.title}</td>
+                <td>{item.description}</td>
                 <td>{item.created_at}</td>
               </tr>
             ))}
